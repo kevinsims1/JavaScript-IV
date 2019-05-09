@@ -85,7 +85,7 @@ class ProjectManager extends Person {
     location: "San Diego",
     age: 28,
     gender: "male",
-    favSubjects: ["Javascript", "C++"],
+    favsubjects: ["Javascript", "C++"],
     grade: 100
 });
 
@@ -94,7 +94,7 @@ class ProjectManager extends Person {
     location: "San Diego",
     age: 48,
     gender: "female",
-    favSubjects: ["Ruby", "Python"],
+    favsubjects: ["Ruby", "Python"],
     grade: 100
 });
 
