@@ -1,105 +1,135 @@
 // CODE here for your Lambda Classes
 
-class GameObject {
+class Person {
     constructor(attributes) {
-        this.createdAt = attributes.createdAt;
+        this.location = attributes.location;
         this.name = attributes.name;
-        this.dimensions = attributes.dimensions;
+        this.age = attributes.age;
   }
-  destroy() {
-    return `${this.name} was removed from the game.`
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
   };
 }
-  
-  
-  
-  class CharacterStats extends GameObject {
-      constructor(PersonalStats) {
-        super(PersonalStats);
-        this.healthPoints = PersonalStats.healthPoints;
+
+class Instructor extends Person { 
+    constructor(InstructorAtrrs) {
+        super(InstructorAtrrs);
+        this.specialty = InstructorAtrrs.specialty;
+        this.favLanguage = InstructorAtrrs.favLanguage;
+        this.catchPhrase = InstructorAtrrs.catchPhrase;
   }
-  takeDamage() {
-    return `${GameObject.name} took damage`;
+  demo(subject) {
+    return `Today we are learning about ${subject}`
+  };
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
-  
-  
-  
-  
-   class Humanoid extends CharacterStats {
-        constructor(Appearance) {
-            super(Appearance);
-            this.team = Appearance.team;
-            this.weapons = Appearance.weapons;
-            this.language = Appearance.language;
-        }
-        greet() {
-            return `${this.name} offers a greeting in ${this.language}`;
-          };
-   }
- 
-  
-  
-  
-  
-  
-    const mage = new Humanoid({
-      createdAt: new Date(),
-      dimensions: {
-        length: 2,
-        width: 1,
-        height: 1,
-      },
-      healthPoints: 5,
-      name: 'Bruce',
-      team: 'Mage Guild',
-      weapons: [
-        'Staff of Shamalama',
-      ],
-      language: 'Common Tongue',
-    });
-  
-    const swordsman = new Humanoid({
-      createdAt: new Date(),
-      dimensions: {
-        length: 2,
-        width: 2,
-        height: 2,
-      },
-      healthPoints: 15,
-      name: 'Sir Mustachio',
-      team: 'The Round Table',
-      weapons: [
-        'Giant Sword',
-        'Shield',
-      ],
-      language: 'Common Tongue',
-    });
-  
-    const archer = new Humanoid({
-      createdAt: new Date(),
-      dimensions: {
-        length: 1,
-        width: 2,
-        height: 4,
-      },
-      healthPoints: 10,
-      name: 'Lilith',
-      team: 'Forest Kingdom',
-      weapons: [
-        'Bow',
-        'Dagger',
-      ],
-      language: 'Elvish',
-    });
-  
-    console.log(mage.createdAt); // Today's date
-    console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-    console.log(swordsman.healthPoints); // 15
-    console.log(mage.name); // Bruce
-    console.log(swordsman.team); // The Round Table
-    console.log(mage.weapons); // Staff of Shamalama
-    console.log(archer.language); // Elvish
-    console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-    console.log(mage.takeDamage()); // Bruce took damage.
-    console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+class student extends Person {
+    constructor(StudentAtrrs) {
+        super(StudentAtrrs);
+        this.previousBackground = StudentAtrrs.previousBackground;
+        this.className = StudentAtrrs.className;
+        this.favsubjects = StudentAtrrs.favsubjects;
+    }
+    listssubjects() {
+        return this.favsubjects;
+    }
+    PRAssignment(subject) {
+        return`${this.name} has submitted a PR for ${subject}`
+    }
+    SpringChallenge(subject) {
+        return `${student.name} has begun spring challenge on ${subject}`
+    }
+}
+
+class ProjectManager extends Person {
+    constructor(managerAttrs) {
+        super(managerAttrs);
+        this.gradClassName = managerAttrs.gradClassName;
+        this.favInstructor = managerAttrs.favInstructor;
+    }
+
+     standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!`;
+    }
+
+     debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    }
+}
+
+ const ned = new Instructor({
+    name: "Ned",
+    location: "Philadelphia",
+    age: 37,
+    gender: "male",
+    favLanguage: "JavaScript",
+    specialty: "Front-end",
+    catchPhrase: `Sup`
+});
+
+ const steve = new Instructor({
+    name: "Steve",
+    location: "San Diego",
+    age: 38,
+    gender: "male",
+    favLanguage: "Ruby",
+    specialty: "Fullstack",
+    catchPhrase: `Yo`
+});
+
+ const john = new student({
+    name: "John",
+    location: "San Diego",
+    age: 28,
+    gender: "male",
+    favSubjects: ["Javascript", "C++"],
+    grade: 100
+});
+
+ const jen = new student({
+    name: "Jen",
+    location: "San Diego",
+    age: 48,
+    gender: "female",
+    favSubjects: ["Ruby", "Python"],
+    grade: 100
+});
+
+ const shawn = new ProjectManager({
+    name: "Shawn",
+    location: "Toledo",
+    age: 58,
+    gender: "male",
+    gradClassName: "CS1"
+});
+
+ const tina = new ProjectManager({
+    name: "Tina",
+    location: "Scranton",
+    age: 30,
+    gender: "female",
+    gradClassName: "CS2"
+});
+
+
+console.log(tina.speak());
+console.log(jen.listssubjects());
+console.log(shawn.gender);
+console.log(tina.debugsCode(jen, "Javascript"));
+console.log(shawn.standUp("FSW14"));
+console.log(ned.demo("React"));
+console.log(ned.grade(jen, "CSS"));
+console.log(shawn.speak());
+console.log(john.PRAssignment("Responsive Design"));
+console.log(steve.catchPhrase);
+
+
+
+
+
+
+
+
