@@ -45,8 +45,8 @@ class student extends Person {
 }
 
 class ProjectManager extends Person {
-    constructor({gradClassName,favInstructor,favLanguage,specialty,catchPhrase}) {
-        super({favLanguage,specialty,catchPhrase});
+    constructor({gradClassName, favInstructor, favLanguage, specialty, catchPhrase, name, age, location}) {
+        super({favLanguage, specialty, catchPhrase, name, age, location});
         this.gradClassName = gradClassName;
         this.favInstructor = favInstructor;
     }
